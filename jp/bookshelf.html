@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>作品刊行順 | G.W. HAWKINS</title>
+    <meta name="description" content="公式年表 G.W. Hawkins. アメリカ海軍が生んだ史上最強の破壊の兵器.">
+    
+    <link rel="alternate" hreflang="en" href="https://gwhawkins.com/bookshelf.html" />
+    <link rel="alternate" hreflang="ja" href="https://gwhawkins.com/jp/bookshelf.html" />
+    
+    <link rel="icon" type="image/webp" href="../Website Photo/jp_photo/G.W. Hawkins-Official-Logo.webp">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmO84sAAAAAKOjP5YNgdbL4mjITAIxWyU6Ruh6"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Noto Serif JP', serif; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Desktop Custom Cursor */
+        @media (pointer: fine) {
+            .book-card { cursor: none; }
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+
+        .tactical-quote { border-left: 2px solid #eab308; padding-left: 1rem; color: #eab308; font-weight: 700; font-family: 'Noto Serif JP', serif; font-size: 1rem; letter-spacing: 0.05em; }
+        
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <noscript><div class="fixed top-0 w-full bg-red-600 text-white text-center py-2 z-[9999] font-bold text-sm tracking-widest uppercase">JavaScript is disabled. For the full tactical experience, please enable JavaScript.</div></noscript>
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">READ</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]">
+            <img src="../Website Photo/jp_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="G.W. Hawkins-Official-Logo" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">書籍一覧</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">著者紹介</a>
+            <a href="publishing.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">出版社</a>
+            <a href="news.html" class="hover:text-white transition-colors text-yellow-500 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">ニュース</a>
+            
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none" aria-label="Toggle Menu">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link text-yellow-500 transition-colors">書籍一覧</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">著者紹介</a>
+                <a href="publishing.html" class="mobile-link hover:text-yellow-500 transition-colors">出版社</a>
+                <a href="news.html" class="mobile-link hover:text-yellow-500 transition-colors">ニュース</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-8 max-w-5xl mx-auto relative z-10 text-center reveal-element opacity-0 translate-y-8">
+        <span class="mono text-yellow-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">公式年表</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-8">作品刊行順</h1>
+        <div class="serif text-lg md:text-xl leading-[1.8] text-white/80 max-w-3xl mx-auto text-left md:text-center">
+            <p class="mb-6">アメリカ海軍が生んだ史上最強の破壊の兵器として従軍した後、ジェームズ・ホーキンスは、一瞬の油断も許されない高リスクな戦場の、息の詰まるような沈黙の中にいた。彼はただ任務を遂行するのではない。彼自身が「任務」そのものなのだ。精鋭揃いのネイビーシールズから、影の世界に潜む幽霊部隊に至るまで、ホーキンスは本能を揺さぶる摩擦と、望んでもいない宿命という重圧に支配された人生を突き進んでいく。</p>
+            <p>ホーキンス・ユニバースは、現実を凌駕する壮大なシミュレーションである。この男の歩んできた軌跡を時系列に沿って追体験することこそが、最良の楽しみ方といえるだろう。この兵器の真髄を理解するためには、最初の亀裂から、最後の大いなる審判に至るまでのタイムラインを辿らなければならない。</p>
+        </div>
+        <div class="h-px w-24 bg-yellow-600 mx-auto mt-16"></div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/jp_photo/The-Hawkins-Cost-of-Honor-Part-I-JP-Edition.webp');" aria-label="ホーキンス 名誉の代償 第一部"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">作戦要員識別番号: #001 | 総語数 145,000語超</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">ホーキンス 名誉の代償 <span class="text-white/60">第一部</span></h2>
+                
+                <div class="space-y-6 serif text-[16px] md:text-[17px] text-white/70 leading-[2.0] mb-12">
+                    <p>生々しい戦場へと足を踏み入れる、最初の任務。</p>
+                    <p>G.W. Hawkins が描くのは、背負った装備よりも遥かに重い宿命を背負った男――ジェームズ・ロバート・ホーキンス・ジュニアの物語だ。</p>
+                    <p>2011年5月。 世界が地球上で最も指名手配されていた男の死に沸き立っていた頃、コロナドの太陽は容赦なく照りつけ続けていた。インディアン・ビーチの荒波にとって、世間のヘッドラインなど何の意味も持たなかった。</p>
+                    <p>大衆が「オペレーション・ネプチューン・スピア」の英雄たちに歓声を送る一方で、氷のように冷たい海流の中では全く別の戦いが激化していた。運に頼る余地などない。近道もない。あるのは、名誉を求めた執念の追求のみ。</p>
+                    <p>ジェームズ・ロバート・ホーキンス・ジュニア。 その名と背負った宿命は、背中の装備よりも重い。史上最も過酷なSEAL訓練クラスの中で、彼が戦っているのは異国の反乱分子ではない。彼が抗っているのは、システムそのもの、終わりのない苦痛のサイクル、そして唯一の出口として鎮座する真鍮の鐘の、耳を聾するような沈黙である。</p>
+                    <p>サイクルが止まることはない。</p>
+                    <p>BUD/S訓練の核心において、己の頭の中にいる者以上に手ごわい敵は存在しない。ここは、栄光の中ではなく、砂と寒さ、そして断固として諦めることを拒む意志の中で、闇の世界のエリート・オペレーターが鍛え上げられる場所なのだ。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8 text-lg">なぜ世界中の読者が「ホーキンス・サーガ」に没入するのか：</h3>
+                    <ul class="list-disc list-outside space-y-4 ml-6">
+                        <li><strong class="text-white">精密なリアリズム：</strong> ハリウッドの安っぽいクオリティを排した、強靭な男たちをも粉砕する訓練の剥き出しの現実。外科手術のような正確さで描かれる技術的真実。</li>
+                        <li><strong class="text-white">闇の世界への没入：</strong> 決して公にされることのなかった世界への独占的な視点。断片的なデータと徹底したリサーチに基づき、緻密に再構築された。</li>
+                        <li><strong class="text-white">技術的真実味と没入感：</strong> 日本語版で最適な読書体験を提供するため、解説描写にはメートル法を採用。しかし、現場の生々しくオーセンティックな空気を守るため、すべての台詞においては、オリジナルの米国単位をそのまま保持している。 妥協なきUS Navy SEALsの日常を体感せよ。</li>
+                        <li><strong class="text-white">伝説の誕生：</strong> 近代タクティカル・ウォーフェアを再定義することになるオペレーターの原点を見届けよ。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">鐘は待っている。彼はそれを鳴らすのか？</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <h4 class="mono text-xs opacity-50 uppercase tracking-widest mb-4">入手する</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://books2read.com/u/mlvrpW" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">D2D</a>
+                        <a href="https://www.kobo.com/us/en/ebook/0OAGqWLeFD-4UOj03Kiong?sId=5c0a1c2a-881e-4958-90df-52bad6f53765&ssId=dDwgEeG4EFK26GSOnhDwl" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">Kobo</a>
+                        <a href="https://play.google.com/store/books/details?id=vDnNEQAAQBAJ" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">Google Play</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10 bg-[#0a0a0a]">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/jp_photo/The-Hawkins-Cost-of-Honor-Part-II-JP-Edition.webp');" aria-label="ホーキンス 名誉の代償 第二部"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">作戦要員識別番号: #002 | 総語数 90,000語超</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">ホーキンス 名誉の代償 <span class="text-white/60">第二部</span></h2>
+                
+                <div class="space-y-6 serif text-[16px] md:text-[17px] text-white/70 leading-[2.0] mb-12">
+                    <p>爆発的ヒットとなった前作に続く続編。G.W. Hawkins の真骨頂であるエンジニアリング・グレードの写実主義がさらに加速する。</p>
+                    <p>2011年5月のトップニュースが人々の記憶から薄れゆく中、第294クラスの現実にはさらなる凄惨さが追い打ちをかける。第二部では、初期の衝撃を生き延びた ジェームズ・ホーキンス が、全シールズ候補生が恐れる怪物ヘル・ウィークに直面し、人間の生物物理学的な限界を解剖していく。魂を砕く極寒の5日間、睡眠奪取が生む幻覚、そして絶え間なき拷問のような訓練。これは単なる物語ではない。人間の破綻点を見極めるためのテクニカル・オーディットである。</p>
+                    <p>戦場は砂浜から、太平洋の押しつぶされるような静寂へと移行する。もはや根性だけの問題ではない。これは物理学対生存の戦いだ。ジェームズ は水中世界の致命的なメカニズムを掌握しなければならない。そこでは PPO2 は単なる変数ではなく、任務完遂とコースティック・カクテルの生死を分ける剃刀の刃となる。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8 text-lg">第二部で伝説が続く理由：</h3>
+                    <ul class="list-disc list-outside space-y-4 ml-6">
+                        <li><strong class="text-white">生存の物理学：</strong> SEAL潜水の技術的現実にさらに深く潜入せよ。ハリウッド的な演出は一切ない。そこにあるのは、太平洋の熱力学と、閉鎖式酸素リブリーザーがもたらす剥き出しの、計算された危うさだけだ。</li>
+                        <li><strong class="text-white">エンジニアリング・グレードの写実主義：</strong> ヘル・ウィークを工学レベルで再構築。神話を剥ぎ取り、人間が耐えうる構造力学を明らかにする。120時間に及ぶ体温調節機能の不全、睡眠奪取の動態、そして精神が砕け散る正確な瞬間を捉える。</li>
+                        <li><strong class="text-white">圧力の解剖学：</strong> システムと戦う段階から、環境そのものを支配する達人へと変貌を遂げる ジェームズ の心理的転換を目の当たりにせよ。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">「鐘」は鳴らされるのを待っている。だが、太平洋はお前の名誉など知ったことではない。</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        刊行状況: 開発中
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                   <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/jp_photo/The-Hawkins-Cost-of-Honor-Part-III-JP-Edition.webp');" aria-label="ホーキンス 名誉の代償 第三部"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">作戦要員識別番号: #003 | 総語数 120,000語超</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">ホーキンス 名誉の代償 <span class="text-white/60">第三部</span></h2>
+                
+                <div class="space-y-6 serif text-[16px] md:text-[17px] text-white/70 leading-[2.0] mb-12">
+                    <p>高い評価を得た三部作の決定的な完結編。G.W. Hawkins がエンジニアリング・グレードの写実主義における最終進化を提示する。</p>
+                    <p>鐘の音は止んだが、戦いは始まったばかりだ。ジェームズ・ホーキンス と第294クラスの生き残りたちにとって、太平洋の極寒は高地砂漠地帯の灼熱へと取って代わられる。第三部では、候補生からティア1アセットへと変貌を遂げる過程をテクニカルに解体していく。もはや環境に耐える段階ではない。弾道精密度と戦術的幾何学によって環境を支配する段階だ。</p>
+                    <p>クラスがフェーズ3の陸上戦および精鋭選抜のSQTへと移行するにつれ、賭け金は生物物理学的な生存から戦闘の微積分へと変化する。ホーキンス は小部隊戦術の致命的な同期性を掌握しなければならない。そこではキネティック・タイミングのわずか一瞬のずれが、トライデントと墓石の分かれ目となる。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8 text-lg">伝説が最終章で終末速度に達する理由：</h3>
+                    <ul class="list-disc list-outside space-y-4 ml-6">
+                        <li><strong class="text-white">殺傷の科学：</strong> 銃声の先へ。外部弾道学と現代陸上戦における高圧的なメカニズムを探索せよ。これはシャドウ・ウォリアーがいかにして戦場のために調整されるかをエンジニアリング・グレードで再構築した記録である。</li>
+                        <li><strong class="text-white">戦術的幾何学：</strong> ルームクリアリングと長距離交戦における冷酷な数学を目の当たりにせよ。映画的な虚勢はいっさいない。そこにあるのは、ターミナル・フォースの剥き出しで計算された執行のみだ。</li>
+                        <li><strong class="text-white">トライデントの重み：</strong> 終着点における心理的代償の深遠なる監査。訓練が終わり、オペレーターが誕生したとき、一人の男の中に何が残るのか。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">訓練は終わる。工作員は残る。トライデントの代償はいかほどか。</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        刊行状況: 開発中
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            
+            <div class="w-full max-w-2xl mx-auto text-center mb-24 reveal-element opacity-0 translate-y-8" id="footer-reveal">
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-yellow-500">セキュア通信リンク</h2>
+                <p class="text-sm opacity-60 mb-8 max-w-md mx-auto">セキュアな通信リンクを確立せよ。機密インテリジェンス、作戦への早期アクセス、および戦術アップデートをBar H Ranchから直接受信する。</p>
+                
+                <form id="dispatch-form" action="https://formspree.io/f/mgorbwvq" method="POST" class="relative max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="g-recaptcha-response" id="recaptcha-response">
+                    
+                    <input type="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-label="メールアドレス" placeholder="メール・ディレクティブを入力..." class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-xs font-bold tracking-widest uppercase focus:outline-none focus:border-yellow-500 transition-colors text-white placeholder:text-white/20">
+                    <button type="submit" id="submit-btn" class="bg-white text-black px-8 py-4 text-xs font-black tracking-widest uppercase hover:bg-yellow-500 transition-all flex justify-center items-center min-w-[140px] focus-visible:outline-yellow-500 focus-visible:outline-offset-4">
+                        <span id="btn-text">開始</span>
+                        <svg id="btn-spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </form>
+                
+                <div id="success-msg" class="hidden mt-6 border border-green-500/30 bg-green-500/10 text-green-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    接続確立。Bar H Ranchへようこそ。
+                </div>
+                <div id="error-msg" class="hidden mt-6 border border-red-500/30 bg-red-500/10 text-red-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    リンク確立に失敗。接続を確認し、再試行せよ。
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/jp_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Bar-H-Ranch-Publishing-House-Official-Logo" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">BAR H RANCH PUBLISHING HOUSE</div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="公式Facebookページ" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" id="secure-liaison" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">連絡窓口</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="公式Twitter/Xプロフィール" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">著者について</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">利用規約</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">プライバシーポリシー</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest">
+                COPYRIGHT © 2026 G.W. HAWKINS | POWERED BY BAR H RANCH PUBLISHING HOUSE<br>
+                無断複写・転載を禁じます。国際著作権プロトコルにより保護されています。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../recaptcha-handler.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Smooth Scroll
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileBtn.querySelectorAll('span');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileBtn.setAttribute('aria-expanded', isMenuOpen);
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = '';
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Interactive Custom Cursor
+        if(window.matchMedia("(pointer: fine)").matches) {
+            const cursor = document.getElementById('custom-cursor');
+            const cursorText = document.getElementById('cursor-text');
+            const bookCards = document.querySelectorAll('.group.relative.book-card');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            bookCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    cursor.classList.remove('w-4', 'h-4');
+                    cursor.classList.add('w-20', 'h-20');
+                    if (cursorText) {
+                        cursorText.classList.remove('opacity-0');
+                        cursorText.classList.add('opacity-100');
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    cursor.classList.add('w-4', 'h-4');
+                    cursor.classList.remove('w-20', 'h-20');
+                    if (cursorText) {
+                        cursorText.classList.remove('opacity-100');
+                        cursorText.classList.add('opacity-0');
+                    }
+                });
+            });
+        }
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+        const footerReveal = document.getElementById('footer-reveal');
+        if(footerReveal) observer.observe(footerReveal);
+
+        // ==========================================
+        // TIER-1 SECURITY PROTOCOLS
+        // ==========================================
+
+        // 1. KINETIC EMAIL CLOAKING (Anti-Scraping)
+        const liaisonLink = document.getElementById('secure-liaison');
+        if(liaisonLink) {
+            liaisonLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = 'management.hawkins';
+                const secureGrid = 'proton.me';
+                window.location.href = 'mailto:' + targetId + '@' + secureGrid;
+            });
+        }
+        
+        // (NOTE: The Inline Formspree logic was removed to let recaptcha-handler.js take full control)
+    });
+
+    // === THE OMNI-ROUTER: GLOBAL LANGUAGE ENGINE ===
+    function switchGlobalLanguage(targetLang) {
+        const path = window.location.pathname;
+        let filename = path.split('/').pop() || 'index.html';
+        if (filename === '') filename = 'index.html';
+
+        const pathParts = path.split('/');
+        pathParts.pop(); 
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        const isCurrentlyInSubfolder = langFolders.includes(currentFolder);
+        let currentLang = isCurrentlyInSubfolder ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        if (targetLang === currentLang) return; 
+
+        let finalUrl = '';
+        if (targetLang === 'en') {
+            finalUrl = isCurrentlyInSubfolder ? '../' + filename : filename;
+        } else {
+            finalUrl = isCurrentlyInSubfolder ? '../' + targetLang + '/' + filename : targetLang + '/' + filename;
+        }
+        window.location.href = finalUrl;
+    }
+
+    // === AUTO-HIGHLIGHT CURRENT LANGUAGE ===
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const pathParts = path.split('/');
+        pathParts.pop();
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        let currentLang = langFolders.includes(currentFolder) ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.remove('text-white/40');
+                btn.classList.add('text-yellow-500', 'font-bold'); 
+            }
+        });
+    });
+    </script>
+</body>
+</html>

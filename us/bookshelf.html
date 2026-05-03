@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    
+    <title>THE MASTER COLLECTION | G.W. HAWKINS</title>
+    <meta name="description" content="The official chronology and tactical dossiers of the G.W. Hawkins Universe.">
+    
+    <link rel="canonical" href="https://gwhawkins.com/us/bookshelf.html" />
+    
+    <link rel="alternate" hreflang="en" href="https://gwhawkins.com/us/bookshelf.html" />
+    <link rel="alternate" hreflang="ja" href="https://gwhawkins.com/jp/bookshelf.html" />
+    <link rel="alternate" hreflang="es" href="https://gwhawkins.com/es/bookshelf.html" />
+    
+    <link rel="icon" type="image/webp" href="../Website Photo/us_photo/G.W. Hawkins-Official-Logo.webp">
+    <link rel="manifest" href="manifest.json">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmO84sAAAAAKOjP5YNgdbL4mjITAIxWyU6Ruh6"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Lora', serif; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Desktop Custom Cursor */
+        @media (pointer: fine) {
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+
+        .tactical-quote { border-left: 2px solid #eab308; padding-left: 1rem; color: #eab308; font-weight: 700; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <noscript><div class="fixed top-0 w-full bg-red-600 text-white text-center py-2 z-[9999] font-bold text-sm tracking-widest uppercase">JavaScript is disabled. Enable it for the full tactical experience.</div></noscript>
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">READ</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <a href="../index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]" aria-label="Home">
+            <img src="../Website Photo/us_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="G.W. Hawkins Logo" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Bookshelf</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">About The Author</a>
+            <a href="publishing.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Publishing House</a>
+            <a href="news.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">News</a>
+            
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none focus-visible:outline-yellow-500" aria-label="Toggle Menu">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link text-yellow-500 transition-colors">Bookshelf</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">About The Author</a>
+                <a href="publishing.html" class="mobile-link hover:text-yellow-500 transition-colors">Publishing House</a>
+                <a href="news.html" class="mobile-link hover:text-yellow-500 transition-colors">News</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-8 max-w-5xl mx-auto relative z-10 text-center reveal-element opacity-0 translate-y-8">
+        <span class="mono text-yellow-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">Official Chronology</span>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8">Books in Order</h1>
+        <div class="serif text-lg md:text-xl leading-[1.8] text-white/80 max-w-3xl mx-auto text-left md:text-center">
+            <p class="mb-6">After serving as the finest instrument of destruction ever fielded by the U.S. Navy, James Hawkins exists within the pressurized silence of high-stakes warfare. He doesn't just execute missions; he is the mission. From the elite decks of the SEAL Teams to the ghost units of the shadow world, Hawkins moves through a life defined by visceral friction and the crushing weight of a legacy he never asked for.</p>
+            <p>The Hawkins Universe is an epic simulation of reality, best experienced by following the chronological growth of the man himself. To understand the weapon, you must follow the timeline from the first fracture to the ultimate reckoning.</p>
+        </div>
+        <div class="h-px w-24 bg-yellow-600 mx-auto mt-16"></div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/us_photo/The Hawkins Cost of Honor Part I.webp');" aria-label="The Hawkins Cost of Honor Part I Cover"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">OPERATIVE ID: #001 | 145,000+ WORDS</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">The Hawkins Cost of Honor <span class="text-white/60">Part I</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>The first mission in the gritty.</p>
+                    <p>G.W. Hawkins introduces James Robert Hawkins Junior—a man carrying a legacy far heavier than the gear on his back.</p>
+                    <p>MAY 2011. While the world was celebrating the death of the most wanted man on earth, the sun still burned at Coronado, and the surf didn't care about headlines.</p>
+                    <p>While the public cheered for the heroes of Operation Neptune Spear, a different kind of war was being waged in the freezing Pacific. No luck. No shortcuts. Only the relentless pursuit of honor.</p>
+                    <p>James Robert Hawkins Junior. A man carrying a name and a legacy far heavier than the gear on his back. In the toughest SEAL class in history, he isn't fighting a foreign insurgent—he's fighting the system, the repetitive cycle of suffering, and the deafening silence of a brass bell that offers the only way out.</p>
+                    <p>The loop never ends.</p>
+                    <p>In the heart of BUD/S training, there are no villains except the one inside your head. This is where the shadow world's elite operators are forged—not in glory, but in the sand, the cold, and the absolute refusal to quit.</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">Why readers are diving into the Hawkins Saga:</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">Engineering-Grade Realism:</strong> No Hollywood fluff. This is the technical, gritty reality of the training that breaks the strongest men.</li>
+                        <li><strong class="text-white">The Shadow World Unveiled:</strong> Insights into a world that was never meant to be shared, delivered with a level of authenticity found nowhere else.</li>
+                        <li><strong class="text-white">The Origin of a Legend:</strong> Experience the birth of the operative who would eventually redefine modern tactical warfare.</li>
+                        <li><strong class="text-white">Uncompromising Accuracy:</strong> Meticulously reconstructed from fragmented data and deep research into the SEAL training curriculum. This isn't just a story; it's a technical blueprint of the human breaking point.</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">The bell is waiting. Will he ring it?</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <h4 class="mono text-xs opacity-50 uppercase tracking-widest mb-4">Acquire Intel: US Edition</h4>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <a href="https://books2read.com/u/3G0ROn" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">D2D (Universal)</a>
+                        <a href="https://www.kobo.com/us/en/ebook/the-hawkins-cost-of-honor-part-i-us-edition" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">Kobo</a>
+                        <a href="https://play.google.com/store/books/details?id=VE3GEQAAQBAJ" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-white/20 text-xs font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all">Google Play</a>
+                    </div>
+                    
+                    <h4 class="mono text-xs opacity-50 uppercase tracking-widest mb-4">Acquire Intel: International Edition</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://books2read.com/u/3L7eKD" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-yellow-600 text-yellow-500 text-xs font-bold tracking-widest uppercase hover:bg-yellow-600 hover:text-white transition-all">D2D (Global)</a>
+                        <a href="https://play.google.com/store/books/details?id=T2fKEQAAQBAJ" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-yellow-600 text-yellow-500 text-xs font-bold tracking-widest uppercase hover:bg-yellow-600 hover:text-white transition-all">Google Play (Global)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10 bg-[#0a0a0a]">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/us_photo/The Hawkins Cost of Honor Part II.webp');" aria-label="The Hawkins Cost of Honor Part II Cover"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">OPERATIVE ID: #002 | 90,000+ WORDS</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">The Hawkins Cost of Honor <span class="text-white/60">Part II</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>The sequel to the breakout hit, continuing G.W. Hawkins’ signature Engineering-Grade Realism.</p>
+                    <p>While the headlines of May 2011 have faded, the reality for Class 294 has only become more brutal. Part II dissects the biophysical limits of the class as James Hawkins, having survived the initial shock, now faces the monster every SEAL trainee dreads: Hell Week. Five days of soul-crushing cold, hallucinations born from sleep deprivation, and the rhythmic torture that proves this isn't just a story; it's a technical audit of the human breaking point.</p>
+                    <p>The battlefield shifts from the sand to the crushing silence of the Pacific. It’s no longer just about grit; it’s about Physics vs. Survival. James must master the lethal mechanics of the underwater world—where PPO2 isn't just a variable, but the razor’s edge between mission success and a Caustic Cocktail.</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">Why the legend continues in Part II:</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">The Physics of Survival:</strong> Dive deeper into the technical reality of SEAL diving. No Hollywood magic—just the Thermodynamics of the Pacific and the raw, calculated danger of Closed-Circuit Oxygen Rebreathers.</li>
+                        <li><strong class="text-white">Engineering-Grade Realism:</strong> An Engineering-Grade Reconstruction of Hell Week—stripping away the myth to reveal the structural mechanics of human endurance. 120 hours of thermal regulation failure, sleep deprivation kinetics, and the precise moment the spirit fractures.</li>
+                        <li><strong class="text-white">The Anatomy of Pressure:</strong> Witness the psychological transformation as James moves from fighting the system to becoming a master of the environment.</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">THE BELL IS WAITING. BUT THE PACIFIC DOESN'T CARE ABOUT YOUR HONOR.</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Status: Awaiting Deployment
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                   <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/us_photo/The Hawkins Cost of Honor Part III.webp');" aria-label="The Hawkins Cost of Honor Part III Cover"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">OPERATIVE ID: #003 | 120,000+ WORDS</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">The Hawkins Cost of Honor <span class="text-white/60">Part III</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>The definitive conclusion to the acclaimed trilogy. G.W. Hawkins delivers the final evolution of Engineering-Grade Realism.</p>
+                    <p>The bell has fallen silent, but the war has just begun. For James Hawkins and the remaining remnants of Class 294, the cold of the Pacific is replaced by the blistering heat of the high-desert ranges. Part III is a technical deconstruction of the transition from trainee to Tier-One asset. This is no longer about enduring the environment; it’s about dominating it through Ballistic Precision and Tactical Geometry.</p>
+                    <p>As the class moves into Phase 3: Land Warfare and the elite SQT, the stakes shift from biophysical survival to the Calculus of Combat. Hawkins must master the lethal synchronicity of small-unit tactics, where a split-second deviation in Kinetic Timing is the difference between a Trident and a tombstone.</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">The legend reaches its terminal velocity in the final act:</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">The Science of Lethality:</strong> Move beyond the gunfire. Explore the External Ballistics and the high-pressure mechanics of modern land warfare. This is an Engineering-Grade Reconstruction of how a shadow warrior is calibrated for the battlefield.</li>
+                        <li><strong class="text-white">Tactical Geometry:</strong> Witness the grim mathematics of room clearing and long-range engagement. No cinematic bravado—just the raw, calculated execution of Terminal Force.</li>
+                        <li><strong class="text-white">The Weight of the Trident:</strong> A profound audit of the psychological cost of the finish line. Discover what remains of a man when the Class ends and the Operator is born.</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">THE TRAINING ENDS. THE OPERATIVE REMAINS. HOW MUCH WILL THE TRIDENT COST?</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Status: Awaiting Deployment
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            
+            <div class="w-full max-w-2xl mx-auto text-center mb-24 reveal-element opacity-0 translate-y-8" id="footer-reveal">
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-yellow-500">Secure Comm-Link</h2>
+                <p class="text-sm opacity-60 mb-8 max-w-md mx-auto">Establish a secure comms link. Receive classified intelligence, early access to operations, and tactical updates directly from the Bar H Ranch.</p>
+                
+                <form id="dispatch-form" action="https://formspree.io/f/mgorbwvq" method="POST" class="relative max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="g-recaptcha-response" id="recaptcha-response">
+                    <input type="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-label="Email Address" placeholder="ENTER EMAIL DIRECTIVE..." class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-xs font-bold tracking-widest uppercase focus:outline-none focus:border-yellow-500 transition-colors text-white placeholder:text-white/20">
+                    <button type="submit" id="submit-btn" class="bg-white text-black px-8 py-4 text-xs font-black tracking-widest uppercase hover:bg-yellow-500 transition-all flex justify-center items-center min-w-[140px] focus-visible:outline-yellow-500 focus-visible:outline-offset-4">
+                        <span id="btn-text">Initiate</span>
+                        <svg id="btn-spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </form>
+                
+                <div id="success-msg" class="hidden mt-6 border border-green-500/30 bg-green-500/10 text-green-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    Connection Established. Welcome to the Ranch.
+                </div>
+                <div id="error-msg" class="hidden mt-6 border border-red-500/30 bg-red-500/10 text-red-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    Secure comm-link failed. Check connection and retry.
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/us_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Bar H Ranch Publishing House Official Logo" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">
+                    BAR H RANCH PUBLISHING HOUSE
+                </div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="Official Facebook Page" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" id="secure-liaison" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">Contact Liaison</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="Official Twitter/X Profile" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">About The Author</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">Terms of Service</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">Privacy Policy</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest">
+                COPYRIGHT © 2026 G.W. HAWKINS | POWERED BY BAR H RANCH PUBLISHING HOUSE<br>
+                ALL RIGHTS RESERVED. PROTECTED UNDER INTERNATIONAL COPYRIGHT PROTOCOLS.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../recaptcha-handler.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lenis Smooth Scroll
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const mobileBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileBtn.querySelectorAll('span');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileBtn.setAttribute('aria-expanded', isMenuOpen);
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = '';
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        if(window.matchMedia("(pointer: fine)").matches) {
+            const cursor = document.getElementById('custom-cursor');
+            const bookCards = document.querySelectorAll('.group');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            bookCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    cursor.classList.remove('w-4', 'h-4');
+                    cursor.classList.add('w-20', 'h-20');
+                    document.getElementById('cursor-text').classList.remove('opacity-0');
+                    document.getElementById('cursor-text').classList.add('opacity-100');
+                });
+                card.addEventListener('mouseleave', () => {
+                    cursor.classList.add('w-4', 'h-4');
+                    cursor.classList.remove('w-20', 'h-20');
+                    document.getElementById('cursor-text').classList.remove('opacity-100');
+                    document.getElementById('cursor-text').classList.add('opacity-0');
+                });
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+        const footerReveal = document.getElementById('footer-reveal');
+        if(footerReveal) observer.observe(footerReveal);
+
+        const liaisonLink = document.getElementById('secure-liaison');
+        if(liaisonLink) {
+            liaisonLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = 'management.hawkins';
+                const secureGrid = 'proton.me';
+                window.location.href = 'mailto:' + targetId + '@' + secureGrid;
+            });
+        }
+    });
+
+    // === THE OMNI-ROUTER V3 (SUBFOLDER ADAPTED) ===
+    function switchGlobalLanguage(targetLang) {
+        const path = window.location.pathname;
+        let filename = path.split('/').pop() || 'index.html';
+        if (filename === '') filename = 'index.html';
+
+        const pathParts = path.split('/');
+        pathParts.pop(); 
+        const currentFolder = (pathParts.pop() || '').toLowerCase(); 
+
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        const isSubfolder = langFolders.includes(currentFolder);
+        
+        let activeLang = isSubfolder ? currentFolder : 'en';
+        if (activeLang === 'us') activeLang = 'en';
+
+        if (targetLang === activeLang) return; 
+
+        let newPath = '';
+        if (targetLang === 'en') {
+            if (filename === 'index.html') {
+                newPath = isSubfolder ? '../index.html' : 'index.html';
+            } else {
+                newPath = isSubfolder ? '../us/' + filename : 'us/' + filename;
+            }
+        } else {
+            newPath = isSubfolder ? '../' + targetLang + '/' + filename : targetLang + '/' + filename;
+        }
+
+        window.location.href = newPath;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const pathParts = path.split('/');
+        pathParts.pop();
+        let currentFolder = (pathParts.pop() || '').toLowerCase();
+        
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        const isSubfolder = langFolders.includes(currentFolder);
+        
+        let currentLang = isSubfolder ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.remove('text-white/40');
+                btn.classList.add('text-yellow-500', 'font-bold'); 
+            }
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    
+    <title>EDITORIAL | BAR H RANCH</title>
+    <meta name="description" content="Resumen de la agencia. Protocolos de desclasificación y archivos.">
+    
+    <link rel="alternate" hreflang="en" href="https://gwhawkins.com/publishing.html" />
+    <link rel="alternate" hreflang="ja" href="https://gwhawkins.com/jp/publishing.html" />
+    <link rel="alternate" hreflang="es" href="https://gwhawkins.com/es/publishing.html" />
+
+    <link rel="icon" type="image/webp" href="../Website Photo/es_photo/G.W. Hawkins-Official-Logo.webp">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmO84sAAAAAKOjP5YNgdbL4mjITAIxWyU6Ruh6"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Lora', serif; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Desktop Custom Cursor */
+        @media (pointer: fine) {
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+        
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <noscript>
+        <div class="fixed top-0 w-full bg-red-600 text-white text-center py-2 z-[9999] font-bold text-sm tracking-widest uppercase">
+            JavaScript está desactivado. Habilite JavaScript para la experiencia táctica.
+        </div>
+    </noscript>
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">LEER</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]" aria-label="Inicio">
+            <img src="../Website Photo/es_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="G.W. Hawkins Logo Oficial" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Catálogo</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Sobre el Autor</a>
+            <a href="publishing.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Editorial</a>
+            <a href="news.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Noticias</a>
+        </div>
+
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none focus-visible:outline-yellow-500" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link hover:text-yellow-500 transition-colors">Catálogo</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">Sobre el Autor</a>
+                <a href="publishing.html" class="mobile-link text-yellow-500 transition-colors">Editorial</a>
+                <a href="news.html" class="mobile-link hover:text-yellow-500 transition-colors">Noticias</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-32 px-8 max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-24 opacity-0 translate-y-8 transition-all duration-1000" id="reveal-header">
+            <img src="../Website Photo/es_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Bar H Ranch Logo" class="h-24 w-auto mx-auto mb-8 opacity-90">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4 uppercase">Resumen de la Agencia</h1>
+            <p class="mono text-sm opacity-50 uppercase tracking-widest">Protocolos de Desclasificación y Archivos</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 opacity-0 translate-y-8 transition-all duration-1000 delay-200" id="reveal-grid">
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">I. EL LEGADO DEL SILENCIO: FUNDADO EN 1861</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">Los orígenes de Bar H Ranch Publishing se remontan a la Guerra Civil Americana. Lo que comenzó como un rancho aislado sirvió a un propósito mucho más clasificado: una bóveda de alta seguridad para la suciedad y los proyectos fallidos que el gobierno de EE. UU. necesitaba enterrar. Durante generaciones, los habitantes del Bar H Ranch han llevado el peso de estos secretos. Hoy, hacemos la transición de guardianes silenciosos a editores, asegurando que su historia no se pierda en el olvido al inmortalizar el legado de la familia Hawkins.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">II. EL ARCHIVO ANTIGUO</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">En las profundidades de los terrenos del Bar H Ranch se encuentra la Biblioteca Antigua Secreta. Esta instalación sirve como nuestro principal centro de inteligencia, albergando una vasta colección de datos tácticos, registros históricos y perfiles psicológicos. Nuestro sistema de archivo está diseñado con redundancia total, asegurando que la Línea de Tiempo Sagrada se mantenga intacta. Cada era, cada misión y cada sacrificio se conserva aquí con precisión de grado de ingeniería.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">III. PROTOCOLO DE INSPECCIÓN DE 7 FASES</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">Cada manuscrito autorizado para llevar el sello del Bar H debe sobrevivir a un protocolo de verificación de 7 fases. Cada etapa de producción se somete a rigurosas auditorías mecánicas y tácticas, escrutando la precisión técnica, la profundidad psicológica y la integridad estructural bajo condiciones extremas. Operamos bajo la directiva de "Calidad sobre Cantidad", tratando cada publicación como una pieza de equipo de grado militar de alto riesgo.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">IV. EL SELLO DE LA VERDAD DESNUDA</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">El sello del Bar H Ranch es un certificado de verdad cruda, brutal y visceral. No saneamos el campo de batalla ni la cruda realidad de la condición humana. Nuestras obras ofrecen un nivel de realismo inquebrantable que el mercado comercial a menudo considera demasiado denso o cotidiano. Publicamos para los puristas: aquellos que exigen la verdad sin adornos que no pueden encontrar en ningún otro lugar.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">V. ESTADO FINAL ESTRATÉGICO</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">Nuestro objetivo final trasciende la publicación tradicional. Bar H Ranch Publishing es el "Archivo de las Transiciones Humanas", que documenta la evolución de nuestra especie a través de los ojos de la familia Hawkins. Existimos para preservar una ideología singular y un estándar de verdad que se mantiene firme contra las tendencias del mercado y el revisionismo histórico.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">VI. GÉNESIS: LA FRONTERA DE LOS INCONFORMISTAS</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">Los cimientos del Bar H Ranch fueron sentados por los primeros ancestros Hawkins, quienes desafiaron los prejuicios dominantes de su época. Mientras los colonos vecinos se aferraban a la brutal norma de la esclavitud, la familia Hawkins solo reconoció sirvientes, tratando a todos los que trabajaban la tierra con dignidad humana. Esta postura provocó la hostilidad local. Esta fricción ideológica desencadenó generaciones de conflicto, pero también estableció el perímetro pacífico que permitió el inicio de sus operaciones encubiertas.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">VII. LA DOCTRINA DE LA DISCIPLINA</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">No hubo campañas de reclutamiento formales, solo la educación al estilo Hawkins. Cada generación fue forjada bajo un régimen de "Excelencia Obligatoria" y disciplina inquebrantable. Aunque el exterior era de un rigor implacable, el núcleo de esta filosofía estaba arraigado en un espíritu oculto pero profundo de amor y protección. Cada acción es impulsada por la necesidad imperiosa de ser absolutamente el mejor.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">VIII. EVOLUCIÓN TECNOLÓGICA</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">La Biblioteca Antigua Secreta ha evolucionado junto con el progreso humano. Lo que comenzó como pergaminos físicos y diarios escondidos en el abismo del rancho se ha expandido a una sofisticada red global. Hoy en día, nuestros registros abarcan desde archivos físicos meticulosamente conservados hasta infraestructuras de nube privadas en aguas profundas. La Línea de Tiempo Sagrada está custodiada por la aplastante presión del fondo del océano, más allá del alcance de la vigilancia convencional.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">IX. EL MITO DE LA VERDAD INALCANZABLE</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">A lo largo de su historia, el Bar H Ranch ha enfrentado innumerables intentos de infiltración. Sin embargo, la seguridad de nuestros datos no reside solo en la encriptación, sino en su "imposibilidad". A medida que pasó el tiempo y los buscadores de la verdad fracasaron repetidamente, la realidad de los registros de Hawkins se transformó en leyenda. El mundo no dejó de ver la verdad; perdió la convicción necesaria para creerla.</p>
+            </div>
+            
+            <div class="border-t border-white/10 pt-6">
+                <span class="mono text-yellow-500 text-xs font-bold tracking-widest block mb-4">X. DIVULGACIÓN FINAL</span>
+                <p class="serif text-[16px] leading-[2.0] text-white/70">Bar H Ranch Publishing se activó porque el estado final se acerca. La era de la ocultación ha terminado; ya no hay necesidad de esconderse detrás del velo del mito. Hemos emergido como el "Archivo Definitivo de las Transiciones Humanas", sacando a la luz registros resguardados durante siglos antes de que se complete el ciclo.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            
+            <div class="w-full max-w-2xl mx-auto text-center mb-24 reveal-element opacity-0 translate-y-8" id="footer-reveal">
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-yellow-500">Enlace de Comunicación Segura</h2>
+                <p class="text-sm opacity-60 mb-8 max-w-md mx-auto">Establezca un enlace seguro. Reciba inteligencia clasificada y actualizaciones tácticas directamente de Bar H Ranch.</p>
+                
+                <form id="dispatch-form" action="https://formspree.io/f/mgorbwvq" method="POST" class="relative max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="g-recaptcha-response" id="recaptcha-response">
+                    
+                    <input type="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-label="Correo Electrónico" placeholder="INGRESAR CORREO..." class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-xs font-bold tracking-widest uppercase focus:outline-none focus:border-yellow-500 transition-colors text-white placeholder:text-white/20">
+                    <button type="submit" id="submit-btn" class="bg-white text-black px-8 py-4 text-xs font-black tracking-widest uppercase hover:bg-yellow-500 transition-all flex justify-center items-center min-w-[140px] focus-visible:outline-yellow-500 focus-visible:outline-offset-4">
+                        <span id="btn-text">Iniciar</span>
+                        <svg id="btn-spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </form>
+                
+                <div id="success-msg" class="hidden mt-6 border border-green-500/30 bg-green-500/10 text-green-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    Conexión Establecida. Bienvenido al Rancho.
+                </div>
+                <div id="error-msg" class="hidden mt-6 border border-red-500/30 bg-red-500/10 text-red-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    Fallo en el enlace de comunicación segura. Verifique la conexión e intente nuevamente.
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/es_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Logo Editorial" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">BAR H RANCH PUBLISHING HOUSE</div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="Facebook Oficial" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" id="secure-liaison" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">CONTACTO DE ENLACE</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="Twitter/X Oficial" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">Sobre el Autor</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">Términos de Servicio</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">Privacidad</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest uppercase">
+                COPYRIGHT © 2026 G.W. HAWKINS | POWERED BY BAR H RANCH PUBLISHING HOUSE<br>
+                TODOS LOS DERECHOS RESERVADOS. PROTEGIDO BAJO PROTOCOLOS INTERNACIONALES.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../recaptcha-handler.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+
+            const mobileBtn = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const spans = mobileBtn.querySelectorAll('span');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                mobileBtn.setAttribute('aria-expanded', isMenuOpen);
+                if(isMenuOpen) {
+                    mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                    mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                    spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                    spans[1].classList.add('opacity-0');
+                    spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                    document.body.style.overflow = 'hidden'; 
+                } else {
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                    spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                    spans[1].classList.remove('opacity-0');
+                    spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                    document.body.style.overflow = '';
+                }
+            }
+            mobileBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+            if(window.matchMedia("(pointer: fine)").matches) {
+                const cursor = document.getElementById('custom-cursor');
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+            }
+
+            setTimeout(() => {
+                const header = document.getElementById('reveal-header');
+                const grid = document.getElementById('reveal-grid');
+                if(header) header.classList.remove('opacity-0', 'translate-y-8');
+                if(grid) grid.classList.remove('opacity-0', 'translate-y-8');
+            }, 100);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                        entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+            const footerReveal = document.getElementById('footer-reveal');
+            if(footerReveal) observer.observe(footerReveal);
+
+            // ==========================================
+            // TIER-1 SECURITY PROTOCOLS
+            // ==========================================
+
+            const liaisonLink = document.getElementById('secure-liaison');
+            if(liaisonLink) {
+                liaisonLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = 'management.hawkins';
+                    const secureGrid = 'proton.me';
+                    window.location.href = 'mailto:' + targetId + '@' + secureGrid;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

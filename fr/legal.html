@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    
+    <title>DOSSIER JURIDIQUE | G.W. HAWKINS</title>
+    <meta name="description" content="Conditions d'utilisation et Politique de confidentialité de l'Univers G.W. Hawkins.">
+    
+    <link rel="icon" type="image/webp" href="../Website Photo/fr_photo/G.W. Hawkins-Official-Logo.webp">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Desktop Custom Cursor */
+        @media (pointer: fine) {
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+        
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">LIRE</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <!-- Logo Link strictly points to the local fr index -->
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]" aria-label="Accueil">
+            <img src="../Website Photo/fr_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="Logo Officiel de G.W. Hawkins" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Bibliothèque</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">À Propos de l'Auteur</a>
+            <a href="publishing.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Maison d'Édition</a>
+            <a href="news.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">Actualités</a>
+            <!-- Language Switcher removed for pure content focus -->
+        </div>
+
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none focus-visible:outline-yellow-500" aria-label="Basculer le Menu">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link hover:text-yellow-500 transition-colors">Bibliothèque</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">À Propos de l'Auteur</a>
+                <a href="publishing.html" class="mobile-link hover:text-yellow-500 transition-colors">Maison d'Édition</a>
+                <a href="news.html" class="mobile-link hover:text-yellow-500 transition-colors">Actualités</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-32 px-8 max-w-4xl mx-auto relative z-10">
+        <div class="mb-20 border-b border-white/10 pb-10 opacity-0 translate-y-8 transition-all duration-1000" id="reveal-header">
+            <span class="mono text-red-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">ACCÈS RESTREINT</span>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">Conditions d'Utilisation & Protocole de Confidentialité</h1>
+            <p class="mono text-sm opacity-50 uppercase tracking-widest">Date d'Entrée en Vigueur : Avril 2026</p>
+        </div>
+
+        <div class="space-y-16 opacity-0 translate-y-8 transition-all duration-1000 delay-200" id="reveal-content">
+            
+            <div class="space-y-8">
+                <div class="bg-yellow-500/10 border-l-2 border-yellow-500 p-6">
+                    <p class="text-sm md:text-base font-bold text-yellow-500 uppercase tracking-wide leading-relaxed">
+                        Bienvenue sur le site Web de G.W. Hawkins. Ces Conditions d'Utilisation régissent votre accès et votre utilisation de ce site Web ainsi que de tout contenu lié aux œuvres de G.W. Hawkins. EN ACCÉDANT À CE SITE, VOUS ACCEPTEZ D'ÊTRE LIÉ PAR CES CONDITIONS. SI VOUS N'ÊTES PAS D'ACCORD, DÉCONNECTEZ-VOUS ET QUITTEZ IMMÉDIATEMENT.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">Droit d'Auteur et Propriété Absolue</h2>
+                    <p class="text-[15px] leading-relaxed text-white/70">L'ensemble du contenu de ce site — y compris, mais sans s'y limiter, les textes, graphiques, logos, couvertures de livres, noms de personnages, intrigues, et l'univers global de toutes les œuvres passées, présentes et futures sous le pseudonyme G.W. Hawkins — est la propriété exclusive de G.W. Hawkins.</p>
+                    <ul class="list-disc list-inside text-[15px] leading-relaxed text-white/70 space-y-2 mt-4 ml-4">
+                        <li><strong class="text-white">Le Privilège des Fans :</strong> Nous apprécions nos lecteurs fidèles. Il vous est accordé un privilège limité et révocable de créer des Fan Fictions non commerciales ou de partager nos images et liens officiels strictement à des fins promotionnelles pour soutenir l'Univers Hawkins.</li>
+                        <li><strong class="text-red-400">L'Interdiction Absolue :</strong> Il vous est STRICTEMENT INTERDIT d'utiliser notre Propriété Intellectuelle pour générer des revenus, monétiser, ou chercher un profit personnel sous quelque forme que ce soit. De plus, toute utilisation de la Propriété Intellectuelle visant à diffamer, ternir ou endommager la réputation de G.W. Hawkins ou de ses œuvres est strictement interdite.</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">Tolérance Zéro sur la Conduite des Utilisateurs</h2>
+                    <p class="text-[15px] leading-relaxed text-white/70">Ce quartier général est étroitement surveillé. Vous acceptez de ne pas :</p>
+                    <ul class="list-disc list-inside text-[15px] leading-relaxed text-white/70 space-y-2 ml-4">
+                        <li>Utiliser des robots, des "spiders", des "scrapers" ou tout moyen automatisé pour extraire des données ou contourner nos protocoles de sécurité.</li>
+                        <li>Tenter de pirater, de perturber ou d'obtenir un accès non autorisé à des pages cachées, des serveurs ou des réseaux connectés à ce site.</li>
+                        <li>Reproduire, dupliquer, copier, vendre ou exploiter toute partie de ce site ou de la Propriété Intellectuelle sans autorisation écrite expresse.</li>
+                    </ul>
+                    <p class="text-[15px] leading-relaxed text-white/70 mt-4"><strong class="text-white">Conséquences en Cas de Violation :</strong> Nous appliquons une politique de tolérance zéro. Toute utilisation non autorisée, piratage, extraction de données ou activité malveillante entraînera votre bannissement immédiat et permanent. Nous engagerons les représailles légales maximales disponibles, y compris le dépôt de poursuites civiles pour des dommages punitifs et la recherche de poursuites pénales sans avertissement préalable. Nous ne faisons pas de compromis ; nous neutralisons les menaces.</p>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">Plateformes Tiers et Responsabilité Zéro</h2>
+                    <p class="text-[15px] leading-relaxed text-white/70">Ce site agit comme un centre de commandement et peut contenir des liens vers des vendeurs tiers externes où les transactions ont lieu.</p>
+                    <ul class="list-disc list-inside text-[15px] leading-relaxed text-white/70 space-y-2 ml-4">
+                        <li><strong class="text-white">Vous franchissez la ligne :</strong> Une fois que vous cliquez sur un lien et quittez le site Web de G.W. Hawkins, vous êtes régi par les conditions et les politiques de confidentialité de cette plateforme tierce spécifique.</li>
+                        <li><strong class="text-white">Responsabilité Zéro :</strong> G.W. Hawkins n'assume ABSOLUMENT AUCUNE RESPONSABILITÉ pour les transactions financières, les erreurs de facturation, les pertes de fonds, les suspensions de compte ou les litiges qui se produisent sur des sites tiers. Si vous perdez de l'argent ou rencontrez des problèmes sur une plateforme externe, cela relève strictement de vous et de cette plateforme. N'amenez pas les pertes collatérales de tiers à notre porte.</li>
+                    </ul>
+                </div>
+                <div class="space-y-4 border-b border-white/10 pb-16">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">Droit Applicable et Juridiction</h2>
+                    <p class="text-[15px] leading-relaxed text-white/70">Ces Conditions d'Utilisation seront régies et interprétées conformément aux traités internationaux sur le droit d'auteur les plus stricts applicables, y compris la Convention de Berne pour la protection des œuvres littéraires et artistiques, ainsi qu'aux lois statutaires maximales disponibles dans la juridiction choisie par le titulaire du droit d'auteur au moment du litige. En utilisant ce site, vous consentez à la juridiction exclusive des tribunaux choisis par G.W. Hawkins pour résoudre tout litige. Si vous enfreignez cette Propriété Intellectuelle, vous acceptez que nous ayons le droit de vous traîner devant n'importe quelle juridiction légale qui garantit les sanctions les plus sévères à votre encontre.</p>
+                </div>
+            </div>
+
+            <div class="space-y-8 pt-8">
+                <div class="mb-10">
+                    <h1 class="text-3xl font-black tracking-tight uppercase mb-2">Protocole de Politique de Confidentialité</h1>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">1. Renseignements Que Nous Collectons (Collecte d'Informations)</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Lorsque vous demandez l'accès au Bar H Ranch, nous ne collectons que l'essentiel opérationnel requis : votre adresse e-mail.</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">2. Comment Nous Utilisons Vos Renseignements (Utilisation des Données)</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Votre indicatif d'appel (Callsign) et votre e-mail sont strictement utilisés pour transmettre des mises à jour tactiques, des calendriers de publication et des communications directes concernant l'univers de G.W. Hawkins. Nous opérons avec intégrité ; nous ne vendons, ne louons ni n'échangeons vos données personnelles avec des courtiers tiers.</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">3. Suivi Opérationnel & Infrastructure</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Ce quartier général fonctionne en toute sécurité via l'infrastructure Google. Nous ne déployons actuellement aucun script de suivi intrusif tiers, aucune analyse agressive ni aucun cookie invasif. Les données que vous fournissez restent protégées au sein de l'écosystème standard de Google utilisé pour gérer nos dépêches.</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">4. Transactions Financières & Canaux Sécurisés</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Le site Web de G.W. Hawkins sert de centre de commandement stratégique et de centre de renseignement, et non de vitrine directe. Nous ne traitons pas les paiements et ne collectons, ne traitons ni ne stockons aucune information de carte de crédit. Toutes les acquisitions d'actifs (achats de livres) sont acheminées et gérées entièrement par des plateformes externes sécurisées et de confiance (telles que Google Play Books ou Amazon).</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">5. Restrictions d'Âge</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Les réalités et les thèmes décrits dans la saga G.W. Hawkins sont conçus pour un public mature. Ce site n'est pas destiné aux personnes de moins de 13 ans, et nous ne collectons pas sciemment de données auprès d'elles.</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">6. Rompre le Contact (Vos Droits)</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Vous conservez le contrôle total de votre statut opérationnel. Vous avez le droit de rompre les communications et de demander la suppression de votre indicatif d'appel et de votre e-mail de notre base de données à tout moment.</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-2">7. Contacter le Commandement</h3>
+                        <p class="text-[15px] leading-relaxed text-white/70">Si vous avez besoin d'éclaircissements concernant cette politique ou vos données, acheminez vos communications via nos canaux officiels de médias sociaux ou dirigez-les vers l'e-mail du gestionnaire des droits d'auteur indiqué sur ce site.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/fr_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Logo Officiel de la Maison d'Édition Bar H Ranch" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">MAISON D'ÉDITION BAR H RANCH</div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="Page Facebook Officielle" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="mailto:management.hawkins@proton.me" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">Contacter la Liaison</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="Profil Twitter/X Officiel" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">À Propos de l'Auteur</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500">Conditions d'Utilisation</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500">Politique de Confidentialité</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest">
+                DROITS D'AUTEUR © 2026 G.W. HAWKINS | PROPULSÉ PAR LA MAISON D'ÉDITION BAR H RANCH<br>
+                TOUS DROITS RÉSERVÉS. PROTÉGÉ PAR LES PROTOCOLES INTERNATIONAUX SUR LE DROIT D'AUTEUR.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+        
+        if(window.matchMedia("(pointer: fine)").matches) {
+            const cursor = document.getElementById('custom-cursor');
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        }
+
+        const mobileBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileBtn.querySelectorAll('span');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = '';
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        setTimeout(() => {
+            const header = document.getElementById('reveal-header');
+            const content = document.getElementById('reveal-content');
+            if(header) header.classList.remove('opacity-0', 'translate-y-8');
+            if(content) content.classList.remove('opacity-0', 'translate-y-8');
+        }, 100);
+    </script>
+</body>
+</html>

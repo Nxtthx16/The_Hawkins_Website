@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    
+    <title>大師典藏 | G.W. HAWKINS</title>
+    <meta name="description" content="G.W. Hawkins 宇宙的官方時間線與戰術檔案。">
+    
+    <link rel="canonical" href="https://gwhawkins.com/tc/bookshelf.html" />
+    
+    <link rel="alternate" hreflang="en" href="https://gwhawkins.com/us/bookshelf.html" />
+    <link rel="alternate" hreflang="ja" href="https://gwhawkins.com/jp/bookshelf.html" />
+    <link rel="alternate" hreflang="es" href="https://gwhawkins.com/es/bookshelf.html" />
+    <link rel="alternate" hreflang="de" href="https://gwhawkins.com/de/bookshelf.html" />
+    <link rel="alternate" hreflang="fr" href="https://gwhawkins.com/fr/bookshelf.html" />
+    <link rel="alternate" hreflang="it" href="https://gwhawkins.com/it/bookshelf.html" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://gwhawkins.com/tc/bookshelf.html" />
+    
+    <link rel="icon" type="image/webp" href="../Website Photo/tc_photo/G.W. Hawkins-Official-Logo.webp">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmO84sAAAAAKOjP5YNgdbL4mjITAIxWyU6Ruh6"></script>
+
+    <style>
+        body { font-family: 'Inter', 'Noto Serif TC', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Noto Serif TC', serif; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Desktop Custom Cursor */
+        @media (pointer: fine) {
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+
+        .tactical-quote { border-left: 2px solid #eab308; padding-left: 1rem; color: #eab308; font-weight: 700; font-family: 'JetBrains Mono', monospace; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <noscript><div class="fixed top-0 w-full bg-red-600 text-white text-center py-2 z-[9999] font-bold text-sm tracking-widest uppercase">JavaScript 已停用。請啟用以獲得完整的戰術體驗。</div></noscript>
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">閱讀</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <!-- Logo Link strictly points to the local tc index -->
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]" aria-label="首頁">
+            <img src="../Website Photo/tc_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="G.W. Hawkins 官方標誌" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">著作書架</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">關於作者</a>
+            <a href="publishing.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">獨立出版社</a>
+            <a href="news.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">最新情報</a>
+            <!-- Language Switcher is removed in sub-pages for Conversion Focus -->
+        </div>
+
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none focus-visible:outline-yellow-500" aria-label="切換選單">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link text-yellow-500 transition-colors">著作書架</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">關於作者</a>
+                <a href="publishing.html" class="mobile-link hover:text-yellow-500 transition-colors">獨立出版社</a>
+                <a href="news.html" class="mobile-link hover:text-yellow-500 transition-colors">最新情報</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-8 max-w-5xl mx-auto relative z-10 text-center reveal-element opacity-0 translate-y-8">
+        <span class="mono text-yellow-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">官方時間線</span>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-8">閱讀順序</h1>
+        <div class="serif text-lg md:text-xl leading-[1.8] text-white/80 max-w-3xl mx-auto text-left md:text-center">
+            <p class="mb-6">在作為美國海軍有史以來部署過最致命的毀滅工具服役後，詹姆斯·霍金斯生存在高風險戰爭那令人窒息的沉默中。他不只是執行任務；他本身就是任務。從海豹部隊的精英甲板到暗影世界的幽靈單位，霍金斯穿梭在由殘酷摩擦力與他從未渴求過的沉重家族遺產所定義的人生中。</p>
+            <p>Hawkins 宇宙是一場史詩般的現實模擬，而體驗它的最佳方式，就是跟隨這個男人本身的成長軌跡。要理解這件武器，你必須沿著時間線，從最初的裂痕走向最終的清算。</p>
+        </div>
+        <div class="h-px w-24 bg-yellow-600 mx-auto mt-16"></div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/tc_photo/The-Hawkins-Cost-of-Honor-Part-I-TC-Edition.webp');" aria-label="霍金斯：榮譽代價 第一部 封面"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">特工作業編號：#001 | 總字數 145,000+</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">霍金斯：榮譽代價 <span class="text-white/60">第一部</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>進入殘酷現實的首次任務。</p>
+                    <p>G.W. Hawkins 將詹姆斯·羅伯特·霍金斯二世帶入你的視野——這個男人背負著比他身上的裝備還要沉重得多的遺產。</p>
+                    <p>2011 年 5 月。當世界正在為地球上頭號通緝犯的死亡而歡呼時，科羅納多的陽光依然炙熱，海浪也根本不在乎任何新聞頭條。</p>
+                    <p>當大眾在為「海神之矛行動的英雄們喝采時，冰冷的太平洋裡正在進行另一種戰爭。沒有運氣。沒有捷徑。只有對榮譽的無情追求。</p>
+                    <p>詹姆斯·羅伯特·霍金斯二世。在海豹部隊歷史上最嚴苛的選拔班中，他對抗的不是外國的叛亂分子——他在對抗體制，對抗無止盡的痛苦循環，以及那座唯一能提供解脫、卻震耳欲聾的黃銅鐘。</p>
+                    <p>循環永無止境。</p>
+                    <p>在 BUD/S 訓練的核心，除了你腦海中的惡魔之外，沒有其他反派。這裡是暗影世界精英特工鍛造的地方——不是在榮耀中，而是在沙灘、寒冷，以及絕對拒絕放棄的意志中。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">為什麼讀者紛紛投入 Hawkins 史詩：</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">工程級真實感：</strong> 沒有好萊塢式的虛飾。這是能擊垮最強壯男人的訓練的技術性與殘酷現實。</li>
+                        <li><strong class="text-white">揭開暗影世界的面紗：</strong> 深入了解一個從未打算與世人分享的世界，並提供無可比擬的真實感。</li>
+                        <li><strong class="text-white">傳奇的起源：</strong> 體驗這位最終將重新定義現代戰術戰爭的特工的誕生。</li>
+                        <li><strong class="text-white">毫不妥協的準確性：</strong> 從破碎的數據和對海豹部隊訓練課程的深入研究中精心重建。這不僅僅是一個故事；它是人類崩潰點的技術藍圖。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">銅鐘在等待。他會敲響它嗎？</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <h4 class="mono text-xs opacity-50 uppercase tracking-widest mb-4">獲取情報</h4>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://books2read.com/u/mqjrle" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-yellow-600 text-yellow-500 text-xs font-bold tracking-widest uppercase hover:bg-yellow-600 hover:text-white transition-all">D2D (全球通用)</a>
+                        <a href="https://www.kobo.com/us/en/ebook/g-tcZfEz3T6CakCsuwwnng?sId=2f4f7573-0521-4e50-b28a-e6de598ba78d&ssId=2b3FxrnUgLRr63jMZg9tY" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-900 border border-yellow-600 text-yellow-500 text-xs font-bold tracking-widest uppercase hover:bg-yellow-600 hover:text-white transition-all">Kobo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10 bg-[#0a0a0a]">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/tc_photo/The-Hawkins-Cost-of-Honor-Part-II-TC-Edition.webp');" aria-label="霍金斯：榮譽代價 第二部 封面"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">特工作業編號：#002 | 總字數 90,000+</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">霍金斯：榮譽代價 <span class="text-white/60">第二部</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>這部突破性熱門作品的續集，延續了 G.W. Hawkins 標誌性的「工程級真實感」。</p>
+                    <p>當 2011 年 5 月的頭條新聞逐漸褪色，294 班面臨的現實卻變得更加殘酷。第二部剖析了該班級的生物物理極限。詹姆斯·霍金斯在撐過最初的衝擊後，現在要面對每一個海豹部隊受訓者都畏懼的怪物：地獄週。五天令人靈魂粉碎的嚴寒、因睡眠剝奪而產生的幻覺，以及那節奏般的折磨，證明了這不僅僅是一個故事；它是對人類崩潰點的技術審核。</p>
+                    <p>戰場從沙灘轉移到太平洋令人窒息的寂靜中。這不再僅僅關乎勇氣；這是物理學與生存的對決。詹姆斯必須掌握水下世界的致命機制——在那裡，PPO2 不只是一個變數，而是任務成功與吸入「腐蝕性雞尾酒」之間如剃刀般鋒利的界線。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">為什麼傳奇在第二部繼續：</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">生存的物理學：</strong> 深入潛入海豹部隊潛水訓練的技術現實。沒有好萊塢的魔法——只有太平洋的熱力學，以及閉路氧氣循環呼吸器那原始且經過計算的危險。</li>
+                        <li><strong class="text-white">工程級真實感：</strong> 以工程級的精度重建地獄週——剝去神話的外衣，揭示人類耐力的結構力學。120 小時的熱調節失效、睡眠剝奪動力學，以及精神崩潰的精確時刻。</li>
+                        <li><strong class="text-white">壓力的解剖學：</strong> 見證詹姆斯從對抗體制，轉變為掌控環境大師的心理蛻變過程。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">銅鐘在等待。但太平洋根本不在乎你的榮譽。</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        狀態：等待部署命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 items-start reveal-element opacity-0 translate-y-8">
+            <div class="w-full lg:w-1/3 shrink-0">
+                <div class="aspect-[2/3] bg-zinc-900 border border-white/10 shadow-2xl relative overflow-hidden group">
+                   <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('../Website Photo/tc_photo/The-Hawkins-Cost-of-Honor-Part-III-TC-Edition.webp');" aria-label="霍金斯：榮譽代價 第三部 封面"></div>
+                </div>
+            </div>
+            <div class="w-full lg:w-2/3">
+                <span class="mono text-[10px] text-yellow-500 mb-2 uppercase tracking-widest font-bold block">特工作業編號：#003 | 總字數 120,000+</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">霍金斯：榮譽代價 <span class="text-white/60">第三部</span></h2>
+                
+                <div class="space-y-6 serif text-lg text-white/70 leading-[1.8] mb-12">
+                    <p>這部備受讚譽的三部曲的最終章。G.W. Hawkins 帶來了「工程級真實感」的終極演化。</p>
+                    <p>銅鐘已經沉寂，但戰爭才剛剛開始。對於詹姆斯·霍金斯和 294 班殘存的學員來說，太平洋的嚴寒被高海拔沙漠靶場的酷熱所取代。第三部是對從受訓學員過渡到「第一層級」戰略資產的技術性解構。這不再是關於忍受環境；而是關乎透過彈道精確度和戰術幾何學來主宰它。</p>
+                    <p>當班級進入第三階段：陸戰及菁英海豹部隊資格訓練時，賭注從生物物理上的生存轉變為戰鬥演算。霍金斯必須掌握小部隊戰術中致命的同步性——在那裡，動能時機一分一毫的偏差，就是獲得三叉戟徽章與走入墳墓的區別。</p>
+                    
+                    <h3 class="font-bold text-white font-inter tracking-wide uppercase mt-8">傳奇在最終幕達到它的終端速度：</h3>
+                    <ul class="list-disc list-inside space-y-3 ml-2 font-inter text-[15px]">
+                        <li><strong class="text-white">致命科學：</strong> 超越槍火。探索現代陸戰中的外部彈道學和高壓力學。這是一次工程級別的重現，揭示了一名暗影戰士是如何為了戰場而被精確校準的。</li>
+                        <li><strong class="text-white">戰術幾何學：</strong> 見證室內掃蕩和遠距離接戰中冷酷的數學計算。沒有電影般的逞英雄——只有對終端武力最純粹、最經過計算的執行。</li>
+                        <li><strong class="text-white">三叉戟的重量：</strong> 對抵達終點線所付出的心理代價進行深度審核。發現當訓練班結束，真正的「幹員」誕生時，一個男人的內心還剩下什麼。</li>
+                    </ul>
+                    
+                    <div class="tactical-quote mt-8">訓練結束。特工猶存。這枚三叉戟將付出多少代價？</div>
+                </div>
+
+                <div class="border-t border-white/10 pt-8">
+                    <div class="inline-flex px-8 py-4 bg-zinc-900/50 border border-white/10 text-xs font-bold tracking-widest uppercase text-white/40 cursor-not-allowed">
+                        <svg class="w-4 h-4 mr-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        狀態：等待部署命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            
+            <div class="w-full max-w-2xl mx-auto text-center mb-24 reveal-element opacity-0 translate-y-8" id="footer-reveal">
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-yellow-500">加密通訊頻道</h2>
+                <p class="text-sm opacity-60 mb-8 max-w-md mx-auto">建立安全通訊。直接從 Bar H Ranch 接收機密情報、任務的早期訪問權限以及戰術更新。</p>
+                
+                <form id="dispatch-form" action="https://formspree.io/f/mgorbwvq" method="POST" class="relative max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="g-recaptcha-response" id="recaptcha-response">
+                    <input type="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-label="Email Address" placeholder="輸入電子郵件指令..." class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-xs font-bold tracking-widest uppercase focus:outline-none focus:border-yellow-500 transition-colors text-white placeholder:text-white/20">
+                    <button type="submit" id="submit-btn" class="bg-white text-black px-8 py-4 text-xs font-black tracking-widest uppercase hover:bg-yellow-500 transition-all flex justify-center items-center min-w-[140px] focus-visible:outline-yellow-500 focus-visible:outline-offset-4">
+                        <span id="btn-text">啟動連線</span>
+                        <svg id="btn-spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </form>
+                
+                <div id="success-msg" class="hidden mt-6 border border-green-500/30 bg-green-500/10 text-green-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    連線已建立。歡迎來到牧場。
+                </div>
+                <div id="error-msg" class="hidden mt-6 border border-red-500/30 bg-red-500/10 text-red-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    加密通訊失敗。請檢查連線並重試。
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/tc_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Bar H Ranch 出版社官方標誌" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">
+                    BAR H RANCH 出版社
+                </div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="官方 Facebook 專頁" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" id="secure-liaison" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">聯繫聯絡官</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="官方 Twitter/X 個人資料" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">關於作者</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">服務條款</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">隱私權政策</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest">
+                版權所有 © 2026 G.W. HAWKINS | 由 BAR H RANCH 出版社驅動<br>
+                保留所有權利。受國際版權協定嚴格保護。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../recaptcha-handler.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const mobileBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileBtn.querySelectorAll('span');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileBtn.setAttribute('aria-expanded', isMenuOpen);
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = '';
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        if(window.matchMedia("(pointer: fine)").matches) {
+            const cursor = document.getElementById('custom-cursor');
+            const bookCards = document.querySelectorAll('.group');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            bookCards.forEach(card => {
+                if(card.classList.contains('book-card')) {
+                    card.addEventListener('mouseenter', () => {
+                        cursor.classList.remove('w-4', 'h-4');
+                        cursor.classList.add('w-20', 'h-20');
+                        document.getElementById('cursor-text').classList.remove('opacity-0');
+                        document.getElementById('cursor-text').classList.add('opacity-100');
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        cursor.classList.add('w-4', 'h-4');
+                        cursor.classList.remove('w-20', 'h-20');
+                        document.getElementById('cursor-text').classList.remove('opacity-100');
+                        document.getElementById('cursor-text').classList.add('opacity-0');
+                    });
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+        const footerReveal = document.getElementById('footer-reveal');
+        if(footerReveal) observer.observe(footerReveal);
+
+        const liaisonLink = document.getElementById('secure-liaison');
+        if(liaisonLink) {
+            liaisonLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = 'management.hawkins';
+                const secureGrid = 'proton.me';
+                window.location.href = 'mailto:' + targetId + '@' + secureGrid;
+            });
+        }
+
+        const form = document.getElementById('dispatch-form');
+        if(form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btnText = document.getElementById('btn-text');
+                const btnSpinner = document.getElementById('btn-spinner');
+                const successMsg = document.getElementById('success-msg');
+                const errorMsg = document.getElementById('error-msg');
+                btnText.classList.add('hidden'); btnSpinner.classList.remove('hidden'); errorMsg.classList.add('hidden');
+                try {
+                    const response = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                    if (response.ok) { form.reset(); form.classList.add('hidden'); successMsg.classList.remove('hidden'); successMsg.classList.add('animate-reveal'); }
+                    else { throw new Error("Error"); }
+                } catch (error) { btnText.classList.remove('hidden'); btnSpinner.classList.add('hidden'); errorMsg.classList.remove('hidden'); errorMsg.classList.add('animate-reveal'); }
+            });
+        }
+    });
+
+    // === THE OMNI-ROUTER V4 (ULTIMATE EDITION) ===
+    function switchGlobalLanguage(targetLang) {
+        const path = window.location.pathname;
+        let filename = path.split('/').pop() || 'index.html';
+        if (filename === '') filename = 'index.html';
+
+        const pathParts = path.split('/');
+        pathParts.pop(); 
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        const isCurrentlyInSubfolder = langFolders.includes(currentFolder);
+        let currentLang = isCurrentlyInSubfolder ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        if (targetLang === currentLang) return; 
+
+        let finalUrl = '';
+        if (targetLang === 'en') {
+            finalUrl = isCurrentlyInSubfolder ? '../' + filename : filename;
+        } else {
+            finalUrl = isCurrentlyInSubfolder ? '../' + targetLang + '/' + filename : targetLang + '/' + filename;
+        }
+        window.location.href = finalUrl;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const pathParts = path.split('/');
+        pathParts.pop();
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        let currentLang = langFolders.includes(currentFolder) ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.remove('text-white/40');
+                btn.classList.add('text-yellow-500', 'font-bold'); 
+            }
+        });
+    });
+    </script>
+</body>
+</html>

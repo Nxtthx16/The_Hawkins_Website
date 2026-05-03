@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#050505">
+    
+    <title>利用規約およびプライバシー・プロトコル | G.W. HAWKINS</title>
+    <meta name="description" content="G.W. Hawkinsユニバースにおける利用規約およびプライバシーポリシー。">
+    
+    <link rel="alternate" hreflang="en" href="https://gwhawkins.com/legal.html" />
+    <link rel="alternate" hreflang="ja" href="https://gwhawkins.com/jp/legal.html" />
+
+    <link rel="icon" type="image/webp" href="../Website Photo/jp_photo/G.W. Hawkins-Official-Logo.webp">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@300;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdmO84sAAAAAKOjP5YNgdbL4mjITAIxWyU6Ruh6"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f8fafc; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Noto Serif JP', serif; }
+        .glass { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .film-grain { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* A11Y: Custom cursor works ONLY on devices with a real mouse */
+        @media (pointer: fine) {
+            #custom-cursor { transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s; transform: translate(-50%, -50%); }
+            body:hover #custom-cursor { opacity: 1; }
+        }
+        @media (pointer: coarse) {
+            #custom-cursor { display: none !important; }
+        }
+
+        @keyframes grandReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); letter-spacing: -0.05em; }
+            100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: -0.02em; }
+        }
+        .animate-reveal { animation: grandReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-yellow-600 selection:text-white">
+
+    <noscript>
+        <div class="fixed top-0 w-full bg-red-600 text-white text-center py-2 z-[9999] font-bold text-sm tracking-widest uppercase">
+            JavaScript is disabled. For the full tactical experience, please enable JavaScript.
+        </div>
+    </noscript>
+
+    <div class="film-grain"></div>
+
+    <div id="custom-cursor" class="fixed top-0 left-0 w-4 h-4 rounded-full bg-white mix-blend-difference pointer-events-none z-[10000] flex items-center justify-center opacity-0 uppercase font-black text-[8px] text-black tracking-widest overflow-hidden hidden md:flex">
+        <span class="opacity-0 transition-opacity duration-300" id="cursor-text">READ</span>
+    </div>
+
+    <nav class="fixed w-full z-50 px-6 py-5 flex justify-between items-center glass">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase relative z-[60]" aria-label="Home">
+            <img src="../Website Photo/jp_photo/G.W. Hawkins-Official-Logo.webp" class="h-8 w-auto" style="height: 32px; width: auto;" alt="G.W. Hawkins-Official-Logo" loading="lazy">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-10 text-[11px] font-bold tracking-[0.15em] uppercase opacity-70">
+            <a href="bookshelf.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">書籍一覧</a>
+            <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">著者紹介</a>
+            <a href="publishing.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500 focus-visible:outline-offset-4">出版社</a>
+            <a href="news.html" class="hover:text-white transition-colors text-yellow-500 focus-visible:outline-yellow-500 focus-visible:outline-offset-4">ニュース</a>            
+
+        <button id="mobile-toggle" class="md:hidden relative z-[60] w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none focus-visible:outline-yellow-500" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+            <span class="block w-6 h-[2px] bg-white transition-opacity duration-300"></span>
+            <span class="block w-6 h-[2px] bg-white transition-transform duration-300 origin-center"></span>
+        </button>
+
+        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#050505] z-[55] flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] -translate-y-full opacity-0 invisible overflow-y-auto">
+            <div class="flex flex-col items-center gap-10 py-20 text-xl font-black tracking-widest uppercase text-white">
+                <a href="bookshelf.html" class="mobile-link hover:text-yellow-500 transition-colors">書籍一覧</a>
+                <a href="about.html" class="mobile-link hover:text-yellow-500 transition-colors">著者紹介</a>
+                <a href="publishing.html" class="mobile-link hover:text-yellow-500 transition-colors">出版社</a>
+                <a href="news.html" class="mobile-link text-yellow-600 hover:text-yellow-400 transition-colors">ニュース</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-32 px-8 max-w-4xl mx-auto relative z-10">
+        <div class="mb-20 border-b border-white/10 pb-10 opacity-0 translate-y-8 transition-all duration-1000" id="reveal-header">
+            <span class="mono text-red-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">アクセス制限</span>
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-4">利用規約およびプライバシー・プロトコル</h1>
+            <p class="mono text-sm opacity-50 uppercase tracking-widest">発効日：2026年4月</p>
+        </div>
+
+        <div class="space-y-16 opacity-0 translate-y-8 transition-all duration-1000 delay-200" id="reveal-content">
+            
+            <div class="space-y-8">
+                <div class="bg-yellow-500/10 border-l-2 border-yellow-500 p-6">
+                    <p class="serif text-[15px] md:text-[16px] font-bold text-yellow-500 leading-[2.0]">
+                        G.W. Hawkins公式サイトへようこそ。本利用規約は、本ウェブサイト、およびG.W. Hawkinsの著作物に関連するあらゆるコンテンツへのアクセスと利用を規定するものである。本サイトにアクセスすることで、利用者はこれらの規約に拘束されることに同意したものとみなされる。同意しない場合は、直ちに通信を遮断し、退去せよ。
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">著作権および絶対的所有権</h2>
+                    <p class="serif text-[16px] leading-[2.0] text-white/70">本サイト上のすべてのコンテンツ（テキスト、グラフィック、ロゴ、ブックカバー、キャラクター名、ストーリーライン、およびペンネーム G.W. Hawkins の下で発表される過去、現在、未来のすべての著作物にわたる全ユニバースを含むがこれらに限定されない）は、G.W. Hawkinsの独占的財産である。</p>
+                    <ul class="list-disc list-inside serif text-[16px] leading-[2.0] text-white/70 space-y-3 mt-4 ml-4">
+                        <li><strong class="text-yellow-500">ファンの特権：</strong>我々は忠実な読者を尊重する。利用者は、非営利目的の二次創作（ファンフィクション）を作成すること、またはホーキンス・ユニバースを支援するための宣伝目的に限り、公式の画像やリンクを共有する限定的かつ取消可能な特権を付与される。</li>
+                        <li><strong class="text-red-500">絶対的禁止事項：</strong>当方の知的財産を利用していかなる形式であれ収益を上げること、マネタイズすること、または個人的な利益を追求することは厳格に禁止する。さらに、G.W. Hawkinsまたはその著作物の名誉を毀損し、汚し、あるいはその他の損害を与えることを目的とした知的財産の使用は固く禁ずる。</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">ユーザー行動に関するゼロ・トレランス・ポリシー</h2>
+                    <p class="serif text-[16px] leading-[2.0] text-white/70">本本部は厳重に監視されている。利用者は以下の行為を行わないことに同意するものとする。</p>
+                    <ul class="list-disc list-inside serif text-[16px] leading-[2.0] text-white/70 space-y-3 ml-4">
+                        <li>ロボット、スパイダー、スクレイパー、またはその他の自動化された手段を用いてデータを抽出すること、または当方のセキュリティ・プロトコルを回避すること。</li>
+                        <li>本サイトに接続された隠しページ、サーバー、またはネットワークに対して、ハッキング、妨害、または不正アクセスを試みること。</li>
+                        <li>明示的な書面による許可なく、本サイトの一部または知的財産を再生、複製、複写、販売、または悪用すること。</li>
+                    </ul>
+                    <p class="serif text-[16px] leading-[2.0] text-white/70 mt-4"><strong class="text-red-500">違反の帰結：</strong>我々はゼロ・トレランス（一切の妥協なし）の方針で運営している。不正使用、海賊行為、データスクレイピング、または悪意のある活動が認められた場合、即座かつ永久的な追放措置をとる。我々は、懲罰的損害賠償を求める民事訴訟や予告なしの刑事告発を含め、利用可能なあらゆる法的報復を最大限に追求する。我々に和解はない。脅威を排除するのみである。</p>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">第三者プラットフォームおよび免責事項</h2>
+                    <p class="serif text-[16px] leading-[2.0] text-white/70">本サイトはコマンドセンターとして機能しており、取引が行われる外部の第三者ベンダーへのリンクが含まれる場合がある。</p>
+                    <ul class="list-disc list-inside serif text-[16px] leading-[2.0] text-white/70 space-y-3 ml-4">
+                        <li><strong class="text-white">境界線を越える際の注意：</strong>リンクをクリックしてG.W. Hawkins公式サイトを離れた後は、当該の第三者プラットフォームの規約およびプライバシーポリシーが適用される。</li>
+                        <li><strong class="text-white">免責：</strong>G.W. Hawkinsは、第三者サイトで発生した金銭取引、請求ミス、資金の紛失、アカウントの停止、または紛争について一切の責任を負わない。外部プラットフォームで損失や問題が発生した場合、それは利用者とそのプラットフォームとの間の問題である。第三者による損害を当方に持ち込んではならない。</li>
+                    </ul>
+                </div>
+                <div class="space-y-4 border-b border-white/10 pb-16">
+                    <h2 class="text-xl font-black uppercase tracking-widest text-white">準拠法および管轄裁判所</h2>
+                    <p class="serif text-[16px] leading-[2.0] text-white/70">本利用規約は、万国著作権条約（文学的及び美術的著作物の保護に関するベルヌ条約を含む）および紛争時に著作権者が選択した管轄区域において利用可能な最大限の法定刑に基づき、解釈および適用される。本サイトを利用することで、利用者は紛争解決のためにG.W. Hawkinsが選択した裁判所の専属的管轄権に同意したものとみなされる。利用者が知的財産権を侵害した場合、我々は利用者に対して最も厳しい罰則を保証するいかなる法的管轄区域にも、利用者を連行する権利を有することに同意するものとする。</p>
+                </div>
+            </div>
+
+            <div class="space-y-8 pt-8">
+                <div class="mb-10">
+                    <h1 class="text-3xl font-black tracking-tight uppercase mb-2">プライバシーポリシー・プロトコル</h1>
+                </div>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">1. 収集する情報</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">Bar H Ranch へのアクセスをリクエストする際、我々は運用上不可欠な情報のみを収集する。すなわち、利用者のメールアドレスである。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">2. 情報の使用目的</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">利用者のコールサインおよびメールアドレスは、タクティカル・アップデート、出版スケジュールの送付、およびG.W. Hawkinsユニバースに関する直接的な通信のためにのみ使用される。我々は誠実に運営しており、利用者の個人データを第三者のブローカーに販売、賃貸、または取引することはない。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">3. 運用トラッキングおよびインフラ</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">本本部はGoogleのインフラを通じて安全に運営されている。現在、侵入的な第三者のトラッキングスクリプト、過度なアナリティクス、または侵襲的なクッキーは導入していない。提供されたデータは、通信の管理に使用される標準的なGoogleエコシステム内で保護される。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">4. 金銭取引および安全なチャネル</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">G.W. Hawkins公式サイトは戦略的コマンドセンターおよびインテリジェンス・ハブであり、直接的な販売店ではない。我々は支払いを処理せず、クレジットカード情報を収集、処理、または保存することもない。すべての資産取得（書籍の購入）は、信頼できる安全な外部プラットフォーム（Google Play ブックスやAmazonなど）にルーティングされ、そこで完全に処理される。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">5. 年齢制限</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">G.W. Hawkinsサーガで描かれる現実やテーマは、成人向けに設計されている。本サイトは13歳未満の個人を対象としておらず、知る限りにおいてそのデータを収集することもない。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">6. 通信の遮断（利用者の権利）</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">利用者は自らの運用ステータスを完全にコントロールする権利を有する。利用者はいつでも通信を遮断し、当方のデータベースからコールサインおよびメールアドレスの削除を要求する権利を有する。</p>
+                    </div>
+                    <div>
+                        <h3 class="mono text-yellow-500 text-xs font-bold tracking-widest uppercase mb-3">7. コマンドへの連絡</h3>
+                        <p class="serif text-[16px] leading-[2.0] text-white/70">本ポリシーまたはデータに関する確認事項がある場合は、公式ソーシャルメディアチャネルを通じて連絡するか、本サイトに記載されている著作権管理者のメールアドレスに直接問い合わせよ。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] py-24 px-8 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            
+            <div class="w-full max-w-2xl mx-auto text-center mb-24 reveal-element opacity-0 translate-y-8" id="footer-reveal">
+                <h2 class="text-3xl font-black uppercase tracking-tight mb-4 text-yellow-500">セキュア通信リンク</h2>
+                <p class="text-sm opacity-60 mb-8 max-w-md mx-auto">セキュアな通信リンクを確立せよ。機密インテリジェンス、作戦への早期アクセス、および戦術アップデートをBar H Ranchから直接受信する。</p>
+                
+                <form id="dispatch-form" action="https://formspree.io/f/mgorbwvq" method="POST" class="relative max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="g-recaptcha-response" id="recaptcha-response">
+                    
+                    <input type="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-label="メールアドレス" placeholder="メール・ディレクティブを入力..." class="w-full bg-zinc-900/50 border border-white/10 px-6 py-4 text-xs font-bold tracking-widest uppercase focus:outline-none focus:border-yellow-500 transition-colors text-white placeholder:text-white/20">
+                    <button type="submit" id="submit-btn" class="bg-white text-black px-8 py-4 text-xs font-black tracking-widest uppercase hover:bg-yellow-500 transition-all flex justify-center items-center min-w-[140px] focus-visible:outline-yellow-500 focus-visible:outline-offset-4">
+                        <span id="btn-text">開始</span>
+                        <svg id="btn-spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    </button>
+                </form>
+                
+                <div id="success-msg" class="hidden mt-6 border border-green-500/30 bg-green-500/10 text-green-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    接続確立。Bar H Ranchへようこそ。
+                </div>
+                <div id="error-msg" class="hidden mt-6 border border-red-500/30 bg-red-500/10 text-red-400 py-4 px-6 text-xs font-bold tracking-widest uppercase" role="alert">
+                    リンク確立に失敗。接続を確認し、再試行せよ。
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center mb-10">
+                <a href="publishing.html" class="block opacity-90 hover:opacity-100 transition-opacity mb-6 focus-visible:outline-yellow-500 focus-visible:outline-offset-8">
+                    <img src="../Website Photo/jp_photo/Bar-H-Ranch-Publishing-House-Official-Logo.webp" alt="Bar-H-Ranch-Publishing-House-Official-Logo" loading="lazy" class="h-20 w-auto object-contain" style="height: 80px; width: auto;">
+                </a>
+                <div class="text-xl md:text-2xl font-black tracking-wide uppercase mb-3 text-center">BAR H RANCH PUBLISHING HOUSE</div>
+                <div class="h-[2px] w-12 bg-yellow-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex items-center gap-10 mb-16">
+                <a href="https://www.facebook.com/profile.php?id=61583767584394" aria-label="公式Facebookページ" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                <a href="#" id="secure-liaison" class="opacity-80 hover:opacity-100 hover:text-yellow-500 transition-all font-bold text-xs tracking-widest uppercase focus-visible:outline-yellow-500">連絡窓口</a>
+                <a href="https://x.com/GW_Hawkins" aria-label="公式Twitter/Xプロフィール" class="opacity-50 hover:opacity-100 hover:text-yellow-500 transition-all focus-visible:outline-yellow-500"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 mb-10 text-[11px] font-bold tracking-widest uppercase opacity-60">
+                <a href="about.html" class="hover:text-white transition-colors focus-visible:outline-yellow-500">著者について</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500">利用規約</a>
+                <span class="text-white/20">|</span>
+                <a href="legal.html" class="text-white transition-colors border-b border-yellow-500 pb-1 focus-visible:outline-yellow-500">プライバシーポリシー</a>
+            </div>
+
+            <div class="text-[10px] mono opacity-40 text-center leading-loose tracking-widest">
+                COPYRIGHT © 2026 G.W. HAWKINS | POWERED BY BAR H RANCH PUBLISHING HOUSE<br>
+                無断複写・転載を禁じます。国際著作権プロトコルにより保護されています。
+            </div>
+        </div>
+    </footer>
+
+    <script src="../recaptcha-handler.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Lenis Smooth Scroll
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const spans = mobileBtn.querySelectorAll('span');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileBtn.setAttribute('aria-expanded', isMenuOpen);
+            if(isMenuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                spans[0].classList.add('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.add('opacity-0');
+                spans[2].classList.add('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                spans[0].classList.remove('rotate-45', 'translate-y-[8px]');
+                spans[1].classList.remove('opacity-0');
+                spans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                document.body.style.overflow = '';
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Interactive Custom Cursor
+        if(window.matchMedia("(pointer: fine)").matches) {
+            const cursor = document.getElementById('custom-cursor');
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        }
+
+        // Scroll Reveal
+        setTimeout(() => {
+            const header = document.getElementById('reveal-header');
+            const content = document.getElementById('reveal-content');
+            if(header) header.classList.remove('opacity-0', 'translate-y-8');
+            if(content) content.classList.remove('opacity-0', 'translate-y-8');
+        }, 100);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-[1200ms]', 'ease-out');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+        const footerReveal = document.getElementById('footer-reveal');
+        if(footerReveal) observer.observe(footerReveal);
+
+        // ==========================================
+        // TIER-1 SECURITY PROTOCOLS
+        // ==========================================
+
+        // 1. KINETIC EMAIL CLOAKING (Anti-Scraping)
+        const liaisonLink = document.getElementById('secure-liaison');
+        if(liaisonLink) {
+            liaisonLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = 'management.hawkins';
+                const secureGrid = 'proton.me';
+                window.location.href = 'mailto:' + targetId + '@' + secureGrid;
+            });
+        }
+        
+        // (NOTE: The Inline Formspree logic was removed to let recaptcha-handler.js take full control)
+    });
+
+    // === THE OMNI-ROUTER: GLOBAL LANGUAGE ENGINE ===
+    function switchGlobalLanguage(targetLang) {
+        const path = window.location.pathname;
+        let filename = path.split('/').pop() || 'index.html';
+        if (filename === '') filename = 'index.html';
+
+        const pathParts = path.split('/');
+        pathParts.pop(); 
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        const isCurrentlyInSubfolder = langFolders.includes(currentFolder);
+        let currentLang = isCurrentlyInSubfolder ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        if (targetLang === currentLang) return; 
+
+        let finalUrl = '';
+        if (targetLang === 'en') {
+            finalUrl = isCurrentlyInSubfolder ? '../' + filename : filename;
+        } else {
+            finalUrl = isCurrentlyInSubfolder ? '../' + targetLang + '/' + filename : targetLang + '/' + filename;
+        }
+        window.location.href = finalUrl;
+    }
+
+    // === AUTO-HIGHLIGHT CURRENT LANGUAGE ===
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        const pathParts = path.split('/');
+        pathParts.pop();
+        const currentFolder = (pathParts.pop() || '').toLowerCase();
+        const langFolders = ['es', 'jp', 'fr', 'de', 'it', 'tc', 'pt-br', 'us'];
+        let currentLang = langFolders.includes(currentFolder) ? currentFolder : 'en';
+        if (currentLang === 'us') currentLang = 'en';
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.remove('text-white/40');
+                btn.classList.add('text-yellow-500', 'font-bold'); 
+            }
+        });
+    });
+    </script>
+</body>
+</html>
