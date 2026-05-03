@@ -1,0 +1,16 @@
+{
+  "name": "the-hawkins_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "recaptcha-handler.js",
+  "scripts": {
+  "build-tw": "tailwindcss -i ./src/input.css -o ./css/tailwind-output.css --watch"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "tailwindcss": "^4.2.4"
+  }
+}
