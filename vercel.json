@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/((?!maintenance.html$).*)",
-      "destination": "/maintenance.html",
+      "source": "/(?!maintenance)(.*)",
+      "destination": "/maintenance",
       "permanent": false
     }
   ]
